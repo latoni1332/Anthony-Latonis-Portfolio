@@ -61,7 +61,7 @@ footer > p {
   left: 800px;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 431px) {
   div {
     width: 431px;
   }
@@ -91,9 +91,9 @@ footer > p {
     padding: 4px;
   }
   #body {
-    height: 690px;
+    height: 680px;
     position: relative;
-    top: 30px;
+    top: 37px;
   }
   h3 {
     position: relative;
@@ -108,10 +108,10 @@ footer > p {
     position: relative;
     top: 40px;
   }
-  footer {
-    clear: both;
-    position: fixed;
-    top: 800px;
-    left: -900;
+  footer > p {
+    color: black;
+    position: absolute;
+    left: 80px;
+    top: 890px;
   }
 }
