@@ -54,14 +54,14 @@ h2 {
   text-align: center;
   background-color: #eeeeee;
   position: relative;
-  height: 755px;
+  height: 730px;
   top: -19px;
 }
 .project {
   color: #393e46;
   text-decoration: none;
 }
-#body > img {
+#body > a > img {
   width: 700px;
 }
 
@@ -69,7 +69,7 @@ footer > p {
   color: #eeeeee;
   text-align: center;
   position: absolute;
-  top: 915px;
+  top: 890px;
   left: 800px;
 }
 
