@@ -214,4 +214,7 @@ footer > p {
   .resume-title {
     text-align: center;
   }
+  #contact-body {
+    left: 0vh;
+  }
 }
