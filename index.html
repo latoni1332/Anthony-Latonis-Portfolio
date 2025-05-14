@@ -86,18 +86,42 @@
             Specialized in Cybersecurity and Networks
           </h2>
           <p class="col-lg-8 mx-auto fs-5 text-muted">
-            Anthony Latoni graduated with a Bachelor's of Science Degree cum
-            laude, May 2022, from the College of Staten Island CUNY, majoring in
-            Biology with a Mathematics minor. In December 2023, Anthony
-            completed his Master's Degree in Computer Science with a specialized
-            focus on cybersecurity and networks. He had maintained a
-            near-perfect GPA of 3.94 in this rigorous program. As part of his
-            degree, Anthony is working on publishing a dissertation "Enhancing
-            Cybersecurity in Healthcare 5.0 Through Innovative Frameworks".<br />
+            Anthony Latoni graduated cum laude in May 2022 from the College of
+            Staten Island (CUNY) with a Bachelor of Science degree in Biology
+            and a minor in Mathematics. In December 2023, he earned his Master’s
+            Degree in Computer Science with a specialization in cybersecurity
+            and networks, graduating summa cum laude with a 3.94 GPA. His
+            graduate research, "Enhancing Cybersecurity in Healthcare 5.0
+            Through Innovative Frameworks," was published in IEEE Xplore.<br />
             <br />
-            Anthony is seeking a position as a Cybersecurity Specialist or
-            Software Engineer and has the ultimate goal of becoming a
-            Cybersecurity Engineer.
+            Anthony currently serves as a Network Engineer for the New York
+            State Unified Court System, where he supports the statewide
+            expansion of a secure network infrastructure used for surveillance
+            and access control across more than 370 facilities. His
+            responsibilities include configuring virtual machines on enterprise
+            hypervisors, managing data on NetApp storage arrays, and deploying
+            secure systems in low-bandwidth, remote environments—experience that
+            directly contributes to enterprise-grade cybersecurity design and
+            resilience.<br />
+            <br />
+            To further enhance his technical proficiency, Anthony has developed
+            a comprehensive cybersecurity homelab environment. His hands-on work
+            includes deploying and securing services using Docker Compose,
+            Traefik reverse proxy, and internal DNS with Pi-hole and Unbound. He
+            has built isolated DNS networks with custom IP routing, configured
+            health checks, and enforced container security through role-based
+            access controls and firewall rules. He has also integrated digital
+            forensics and incident response tools such as TheHive, simulating
+            real-world cyber incidents to improve alerting, evidence collection,
+            and response workflows. These projects have deepened his expertise
+            in network segmentation, secure service orchestration, log analysis,
+            and threat detection in containerized environments. <br />
+            <br />
+            Anthony is currently seeking opportunities as a Cybersecurity
+            Specialist, with the long-term goal of becoming a Cybersecurity
+            Engineer. He brings a strong academic foundation, operational
+            experience, and a hands-on approach to building and securing
+            systems.
           </p>
           <div class="d-inline-flex gap-2 mb-5">
             <button
@@ -131,19 +155,51 @@
         <h2 class="display-5 fw-bold text-body-emphasis text-center">
           Recent Projects
         </h2>
-        <div id="carouselExampleCaptions" class="carousel slide">
+        <div
+          id="projectCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
           <div class="carousel-indicators">
             <button
               type="button"
-              data-bs-target="#carouselExampleCaptions"
+              data-bs-target="#projectCarousel"
               data-bs-slide-to="0"
               class="active"
               aria-current="true"
               aria-label="Slide 1"
+              style="filter: brightness(0.3)"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#projectCarousel"
+              data-bs-slide-to="1"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 2"
+              style="filter: brightness(0.3)"
             ></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
+              <a href="https://github.com/latoni1332/Cybersecurity-Homelab">
+                <img
+                  src="./assets/images/cyberprodimg.jpeg"
+                  class="d-block w-100"
+                  alt="Real-Time-Scheduler"
+                  style="max-height: 55vh"
+                />
+              </a>
+              <div class="carousel-caption d-none d-md-block">
+                <h5 style="filter: brightness(0)">Cybersecurity Homelab</h5>
+                <p style="filter: brightness(0)">
+                  Homelab environment for experimenting with network security,
+                  virtualization, and self-hosted services, built to support
+                  ongoing cybersecurity research and infrastructure development.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-target="Real-Time-Scheduler">
               <a href="https://github.com/latoni1332/Real-Time-Scheduler">
                 <img
                   src="./assets/images/Real-Time-Scheduler.JPG"
@@ -162,28 +218,61 @@
               </div>
             </div>
           </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#projectCarousel"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon"
+              aria-hidden="true"
+              style="filter: brightness(0.3)"
+            ></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#projectCarousel"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon"
+              aria-hidden="true"
+              style="filter: brightness(0.3)"
+            ></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </section>
     <section id="footer" class="gradient-background">
-      <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4">
-          <div class="col-md-4 d-flex align-items-center">
-            <img src="./assets/images/Logo.png" style="border-radius: 50%; height: 3vh; margin-right: 5px;">
-            </img>
-            <span class="mb-3 mb-md-0" style="color: white;">© 2024 Anthony Latoni</span>
-          </div>
-      
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a href="https://github.com/latoni1332"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" style="color: white;">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-            </svg></a></li>
-            <li class="ms-3"><a href="www.linkedin.com/in/anthony-latoni"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16" style="color: white;">
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-            </svg></a></li>
-          </ul>
-        </footer>
-      </div>
+      <footer
+        class="d-flex justify-content-between align-items-center py-3 mt-4 container"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <img
+            src="../assets/images/Logo.png"
+            style="border-radius: 50%; height: 3vh; margin-right: 5px"
+          />
+          <span class="text-white">© 2025 Anthony Latoni</span>
+        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li>
+            <a href="https://github.com/latoni1332" class="text-white ms-3"
+              >GitHub</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/anthony-latoni/"
+              class="text-white ms-3"
+              >LinkedIn</a
+            >
+          </li>
+        </ul>
+      </footer>
     </section>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
