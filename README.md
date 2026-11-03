@@ -51,4 +51,4 @@ public/             favicon, images (served as-is)
 - Framework preset: **Astro**
 - Build command: `npm run build`
 - Build output directory: `dist`
-- Environment variable: `NODE_VERSION` = `22`
+- Environment variable: `NODE_VERSION` = `26`
