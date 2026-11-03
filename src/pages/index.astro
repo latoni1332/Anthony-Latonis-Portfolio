@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPosts } from '../lib/posts';
+
+const posts = await getPosts();
+const overview = posts.find((p) => p.data.pinned);
+const recent = posts.filter((p) => !p.data.pinned).slice(0, 4);
+---
+
+<Base>
+  <div class="container">
+    <section class="hero">
+      <img class="portrait" src="/images/headshot.jpg" alt="Anthony Latoni" width="104" height="104" />
+      <h1>Infrastructure, built and written down.</h1>
+      <p class="sub">
+        I’m Anthony. I run a 10,000-core HPC cluster by day and a homelab by night, and I write up what I build, break, and fix.
+      </p>
+      <div class="cta">
+        <a class="pill" href="/blog/">Read the blog</a>
+        <a class="chev" href="/resume/">View résumé</a>
+      </div>
+    </section>
+
+    <dl class="specs">
+      <div><dt>10,000+</dt><dd>cores in the HPC cluster I run</dd></div>
+      <div><dt>378+</dt><dd>court facilities on the statewide network I helped expand</dd></div>
+      <div><dt>M.S.</dt><dd>Computer Science, summa cum laude</dd></div>
+      <div><dt>RHCSA</dt><dd>next certification, in progress</dd></div>
+    </dl>
+
+    {overview && (
+      <section class="tile">
+        <p class="kicker">The homelab</p>
+        <h2>One server. Six networks. Built by hand.</h2>
+        <p class="lead">Proxmox, ZFS, OPNsense, and a stack of self-hosted services my household depends on every day.</p>
+        <div class="links">
+          <a class="chev" href={`/blog/${overview.id}/`}>See how it’s built</a>
+        </div>
+        <div class="plate">
+          <img src="/images/lab-architecture.svg" alt="Homelab architecture diagram" width="760" height="520" />
+        </div>
+      </section>
+    )}
+
+    <div class="section-title">
+      <h2>Latest writing</h2>
+      <a class="chev" href="/blog/">All posts</a>
+    </div>
+    <ul class="posts">
+      {recent.map((post) => <PostCard post={post} />)}
+    </ul>
+  </div>
+</Base>

@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts, allTags, type Post } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const tags = allTags(posts);
+  return tags.map((tag) => ({
+    params: { tag },
+    props: { tag, tags, posts: posts.filter((p) => p.data.tags.includes(tag)) },
+  }));
+}
+
+interface Props { tag: string; tags: string[]; posts: Post[] }
+const { tag, tags, posts } = Astro.props;
+---
+
+<Base title={`Posts about ${tag}`}>
+  <div class="container">
+    <header class="page-hero">
+      <h1>Blog</h1>
+      <p class="sub">{posts.length} {posts.length === 1 ? 'post' : 'posts'} about {tag}.</p>
+      <ul class="tags" aria-label="Browse by topic">
+        <li><a class="chip" href="/blog/">All</a></li>
+        {tags.map((t) => <li><a class="chip" href={`/tags/${t}/`} aria-current={t === tag ? 'page' : undefined}>{t}</a></li>)}
+      </ul>
+    </header>
+    <ul class="posts">
+      {posts.map((post) => <PostCard post={post} />)}
+    </ul>
+  </div>
+</Base>

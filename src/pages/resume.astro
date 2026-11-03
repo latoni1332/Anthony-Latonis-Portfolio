@@ -1,0 +1,148 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Edit this data to update the resume. Each role renders in order.
+const roles = [
+  {
+    title: 'Senior Linux Administrator',
+    org: 'Convergent Science',
+    where: 'Madison, WI',
+    when: 'April 2026 to present',
+    bullets: [
+      'Administer a 10,000+ core HPC cluster of several hundred nodes running Rocky Linux, RHEL, and legacy CentOS, and manage the Slurm scheduler that runs engineering simulation workloads.',
+      'Led a GitLab CI runner redesign: moved heavy builds to Docker executors with a shared ccache, cutting them from 1–2 hours to 5–20 minutes, while keeping shell executors for jobs that finish in seconds.',
+      'Maintain diskless PXE provisioning: nodes boot custom-built, in-memory OS images assigned by IP address, so every reboot returns a clean, identical build.',
+      'Operate multi-petabyte storage across ZFS pools and a five-node BeeGFS parallel file system.',
+      'Run identity and access on redundant Red Hat Identity Management servers; deploy new machines and user software with Ansible.',
+      'Maintain network infrastructure for offices in Wisconsin, Michigan, India, and Austria, including perimeter firewall, self-hosted Netbird VPN, and MikroTik and 40 GbE switching.',
+    ],
+  },
+  {
+    title: 'Network Engineer I',
+    org: 'NYS Unified Court System',
+    where: 'New York, NY',
+    when: 'April 2024 to April 2026',
+    bullets: [
+      'Led the expansion of the statewide security VRF network from New York City’s five boroughs to 378+ facilities across Upstate New York.',
+      'Deployed and managed virtual machines on an enterprise hypervisor backed by NetApp storage.',
+      'Stood up local tower servers at low-bandwidth sites to keep security systems running through WAN constraints.',
+      'Hardened network security architecture and device configurations supporting mission-critical court systems.',
+    ],
+  },
+  {
+    title: 'Computer Operator',
+    org: 'NYC Board of Elections',
+    where: 'New York, NY',
+    when: 'February 2023 to April 2024',
+    bullets: [
+      'Contributed to network and firewall upgrades across all five boroughs.',
+      'Used Trellix HX to isolate, remediate, and analyze threats across hundreds of endpoints.',
+      'Managed Active Directory groups for user and device administration; supported hardware and peripherals remotely.',
+    ],
+  },
+  {
+    title: 'IT Consultant',
+    org: 'Latoni Computer Consulting & Service',
+    where: 'Staten Island, NY and remote',
+    when: '2020 to present',
+    bullets: [
+      'Provide hardware, software, networking, and security support to small-business and residential clients on a part-time basis.',
+      'Designed and built the office systems for a medical practice and migrated it to a telemedicine platform (2020–2025).',
+    ],
+  },
+];
+
+const skills = [
+  ['Linux & HPC', 'Rocky Linux, RHEL, CentOS, Fedora, Debian, Slurm, PXE / diskless boot, custom OS imaging'],
+  ['Automation & CI', 'Ansible, GitLab CI/CD, GitLab Runner (Docker executors), ccache, Bash, Python'],
+  ['Storage', 'ZFS, BeeGFS, TrueNAS, NFS, NetApp'],
+  ['Identity & security', 'Red Hat Identity Management (FreeIPA), SSH key management, CrowdSec, Trellix HX, Active Directory'],
+  ['Networking', 'MikroTik RouterOS, pfSense, OPNsense, VLAN segmentation, 40 GbE switching, Netbird / WireGuard, DNS'],
+  ['Virtualization & containers', 'Proxmox VE, GPU passthrough, Docker, Docker Compose, Traefik'],
+];
+---
+
+<Base title="Résumé" description="Résumé of Anthony Latoni, Senior Linux Administrator running a 10,000+ core HPC cluster, with a background in enterprise networking and security.">
+  <div class="container">
+    <header class="page-hero">
+      <h1>Résumé</h1>
+      <p class="sub">
+        Linux administrator running a 10,000+ core HPC cluster, moving toward platform and cloud
+        engineering, with a background in enterprise networking and security.
+      </p>
+      <div class="resume-actions no-print">
+        <button class="pill" type="button" onclick="window.print()">Save as PDF</button>
+        <a class="pill pill-ghost" href="/contact/">Get in touch</a>
+      </div>
+    </header>
+
+    <section class="r-section">
+      <h2>Experience</h2>
+      <div>
+        {roles.map((r) => (
+          <div class="r-item">
+            <h3>{r.title}</h3>
+            <p class="org">{r.org}, {r.where}. {r.when}</p>
+            {r.bullets.length > 0 && <ul>{r.bullets.map((b) => <li>{b}</li>)}</ul>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="r-section">
+      <h2>Homelab</h2>
+      <div class="r-item">
+        <h3>Self-hosted infrastructure lab</h3>
+        <p class="org">2024 to present</p>
+        <ul>
+          <li>Proxmox VE host running storage, DNS, reverse proxy, media, and photo services as isolated VMs; rebuilt from scratch on Proxmox 9.</li>
+          <li>Designed a six-VLAN network on OPNsense and MikroTik with per-tier firewall policy, split-horizon DNS, and DNS filtering.</li>
+          <li>Exposed services through Traefik with CrowdSec intrusion prevention; self-hosted push alerting for hypervisor, storage, and disk health.</li>
+          <li>Writeups at <a href="/blog/">anthonylatoni.com/blog</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="r-section">
+      <h2>Skills</h2>
+      <dl class="skills">
+        {skills.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
+      </dl>
+    </section>
+
+    <section class="r-section">
+      <h2>Certifications</h2>
+      <div class="r-item">
+        <ul>
+          <li>CompTIA Security+</li>
+          <li>AWS Certified Cloud Practitioner</li>
+          <li>In progress: Red Hat Certified System Administrator (RHCSA), then RHCE, AWS Solutions Architect Associate, and CKA</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="r-section">
+      <h2>Education</h2>
+      <div>
+        <div class="r-item">
+          <h3>M.S. Computer Science, Cybersecurity and Networks</h3>
+          <p class="org">College of Staten Island, CUNY. Summa cum laude, 3.94 GPA. December 2023</p>
+        </div>
+        <div class="r-item">
+          <h3>B.S. Biology, minor in Mathematics</h3>
+          <p class="org">College of Staten Island, CUNY. Cum laude. May 2022</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="r-section">
+      <h2>Publication</h2>
+      <div class="r-item">
+        <p style="margin:0">
+          “Enhancing Cybersecurity in Healthcare 5.0 Through Innovative Frameworks.” IEEE Long Island Systems,
+          Applications and Technology Conference (LISAT), 2024. Published in IEEE Xplore.
+        </p>
+      </div>
+    </section>
+  </div>
+</Base>

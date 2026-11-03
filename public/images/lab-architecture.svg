@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" font-family="-apple-system, Inter, Segoe UI, sans-serif" font-size="13">
+  <rect width="760" height="520" rx="12" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#6e6e73"/></marker>
+  </defs>
+  <g stroke="#6e6e73" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <path d="M380 62v24"/>
+    <path d="M380 128v24"/>
+    <path d="M380 196v24"/>
+    <path d="M330 262 L190 300"/>
+    <path d="M430 262 L590 300"/>
+  </g>
+  <g stroke="#d2d2d7" stroke-width="1.4">
+    <rect x="290" y="22" width="180" height="40" rx="10" fill="#fff"/>
+    <rect x="270" y="88" width="220" height="40" rx="10" fill="#fff"/>
+    <rect x="250" y="154" width="260" height="42" rx="10" fill="#0071e3" stroke="#0071e3"/>
+    <rect x="245" y="222" width="270" height="40" rx="10" fill="#fff"/>
+  </g>
+  <g fill="#1d1d1f" text-anchor="middle">
+    <text x="380" y="47" font-weight="600">Internet</text>
+    <text x="380" y="113">ISP gateway · IP passthrough</text>
+    <text x="380" y="172" font-weight="600" fill="#fff">OPNsense firewall (HP t740)</text>
+    <text x="380" y="188" font-size="11.5" fill="#d6e8ff">inter-VLAN policy · Unbound · NAT</text>
+    <text x="380" y="247">MikroTik hEX S switch (VLAN trunks)</text>
+  </g>
+
+  <!-- Proxmox host -->
+  <rect x="24" y="302" width="400" height="196" rx="10" fill="#fff" stroke="#d2d2d7" stroke-width="1.4"/>
+  <text x="40" y="326" font-weight="600" fill="#1d1d1f">Proxmox VE · HP Z840 (2× Xeon, 96 GB)</text>
+  <text x="40" y="343" font-size="11.5" fill="#6e6e73">Servers VLAN · host management on Management VLAN</text>
+  <g font-size="12" fill="#1d1d1f">
+    <rect x="40" y="356" width="180" height="30" rx="8" fill="#f5f5f7"/><text x="50" y="376">TrueNAS · ZFS RAIDZ1 · NFS</text>
+    <rect x="228" y="356" width="180" height="30" rx="8" fill="#f5f5f7"/><text x="238" y="376">Traefik + Pi-hole + CrowdSec</text>
+    <rect x="40" y="394" width="180" height="30" rx="8" fill="#f5f5f7"/><text x="50" y="414">Jellyfin · GPU passthrough</text>
+    <rect x="228" y="394" width="180" height="30" rx="8" fill="#f5f5f7"/><text x="238" y="414">Immich photo library</text>
+    <rect x="40" y="432" width="180" height="30" rx="8" fill="#f5f5f7"/><text x="50" y="452">Media automation</text>
+    <rect x="228" y="432" width="180" height="30" rx="8" fill="#f5f5f7"/><text x="238" y="452">Netbird mesh VPN</text>
+  </g>
+  <text x="40" y="484" font-size="11.5" fill="#6e6e73">Alerting: ntfy ← Proxmox, TrueNAS, smartd, Diun, CrowdSec</text>
+
+  <!-- Wireless -->
+  <rect x="448" y="302" width="288" height="196" rx="10" fill="#fff" stroke="#d2d2d7" stroke-width="1.4"/>
+  <text x="464" y="326" font-weight="600" fill="#1d1d1f">Wi-Fi 7 access point (PoE)</text>
+  <text x="464" y="343" font-size="11.5" fill="#6e6e73">one SSID per VLAN</text>
+  <g font-size="12" fill="#1d1d1f">
+    <rect x="464" y="356" width="256" height="30" rx="8" fill="#f5f5f7"/><text x="474" y="376">Trusted Wi-Fi · laptops, phones</text>
+    <rect x="464" y="394" width="256" height="30" rx="8" fill="#f5f5f7"/><text x="474" y="414">IoT · TV, console</text>
+    <rect x="464" y="432" width="256" height="30" rx="8" fill="#f5f5f7"/><text x="474" y="452">Guest · internet only</text>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts, allTags } from '../../lib/posts';
+
+const posts = await getPosts();
+const ordered = [...posts.filter((p) => p.data.pinned), ...posts.filter((p) => !p.data.pinned)];
+const tags = allTags(posts);
+---
+
+<Base title="Blog" description="Homelab and infrastructure writeups: Proxmox, OPNsense, networking, self-hosting, and automation.">
+  <div class="container">
+    <header class="page-hero">
+      <h1>Blog</h1>
+      <p class="sub">What broke, what I tried, the root cause, and what I’d do differently.</p>
+      {tags.length > 0 && (
+        <ul class="tags" aria-label="Browse by topic">
+          <li><a class="chip" href="/blog/" aria-current="page">All</a></li>
+          {tags.map((t) => <li><a class="chip" href={`/tags/${t}/`}>{t}</a></li>)}
+        </ul>
+      )}
+    </header>
+    <ul class="posts">
+      {ordered.map((post) => <PostCard post={post} />)}
+    </ul>
+  </div>
+</Base>

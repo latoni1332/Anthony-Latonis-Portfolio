@@ -1,0 +1,49 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate, readingTime, type Post } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, newer: posts[i - 1], older: posts[i + 1] },
+  }));
+}
+
+interface Props { post: Post; newer?: Post; older?: Post }
+const { post, newer, older } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, updated, tags, draft } = post.data;
+---
+
+<Base title={title} description={description} type="article">
+  <article class="container reading">
+    <header class="article-head">
+      <p class="date">
+        {draft && <strong>Draft. </strong>}
+        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        {updated && <> (updated {formatDate(updated)})</>}
+        <span> — {readingTime(post.body)} min read</span>
+      </p>
+      <h1>{title}</h1>
+      <p class="sub">{description}</p>
+      {tags.length > 0 && (
+        <ul class="tags" aria-label="Topics">
+          {tags.map((t) => <li><a class="chip" href={`/tags/${t}/`}>{t}</a></li>)}
+        </ul>
+      )}
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {(older || newer) && (
+      <nav class="article-foot no-print" aria-label="More posts">
+        {older && <a href={`/blog/${older.id}/`}><small>Previous</small><strong>{older.data.title}</strong></a>}
+        {newer && <a class="next" href={`/blog/${newer.id}/`}><small>Next</small><strong>{newer.data.title}</strong></a>}
+      </nav>
+    )}
+  </article>
+</Base>

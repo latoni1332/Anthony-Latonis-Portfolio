@@ -1,0 +1,22 @@
+---
+import { formatDate, readingTime, type Post } from '../lib/posts';
+
+interface Props { post: Post }
+const { post } = Astro.props;
+const { title, description, date, pinned, draft } = post.data;
+---
+
+<li>
+  <a class="post-row" href={`/blog/${post.id}/`}>
+    <div>
+      {pinned && <span class="badge">Start here</span>}
+      {draft && <span class="badge">Draft</span>}
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+    <div class="when">
+      <span><time datetime={date.toISOString()}>{formatDate(date)}</time></span>
+      <span>{readingTime(post.body)} min read</span>
+    </div>
+  </a>
+</li>
